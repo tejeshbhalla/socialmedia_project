@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+  <h1>Dashboard</h1>
+
+  {% with total_images_created=request.user.user_images.count %}
+    <p>Welcome to your dashboard. You have bookmarked {{ total_images_created }} image{{ total_images_created|pluralize }}.</p>
+  {% endwith %}
+{% endblock %}

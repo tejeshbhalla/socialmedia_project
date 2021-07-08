@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Upload Image{% endblock %}
+{% block content %}
+  <h1>Upload Image</h1>
+  {% if form.errors %}
+
+  <p>Please Ensure That You Have Entered Valid Form Entry</p>
+
+  {% else %}
+  <p>Please, use the following form to Post Image:</p>
+
+
+  {% endif %}
+
+
+  <form method='post' action="">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type='submit' value='Upload'></p>
+    <input type='hidden' name='next' value='{{ next }}' />
+  </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+  <h1>Sign Up</h1>
+  {% if form.errors %}
+
+  <p>Recheck Field Entries</p>
+
+  {% else %}
+  <p>Please, use the following form to sign-up:</p>
+
+
+  {% endif %}
+
+
+  <form method='post' action="">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type='submit' value='Sign Up'></p>
+    <input type='hidden' name='next' value='{{ next }}' />
+  </form>
+  <p><a href={% url 'account:login'%}>Login Instead</a></p>
+{% endblock %}

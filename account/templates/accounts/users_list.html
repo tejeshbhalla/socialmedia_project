@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}People{% endblock %}
+{% block content %}
+  <h1>People</h1>
+  <div id='people-list'>
+    {% for user in users %}
+      <div class='user'>
+        <a href="{% url 'account:view_profile' user.username %}">
+          {% if user.profile.photo %}
+            <img src={{ user.profile.photo.url  }}>
+          {% else %}
+              <img src="{{MEDIA_URL}}/defaults/user_default.jiff">
+          {%endif %}
+        </a>
+        <div class='info'>
+          <a href="{% url 'account:view_profile' user.username %}"' class='title'>
+            {{ user.username }}
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
